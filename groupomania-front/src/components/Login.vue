@@ -1,5 +1,6 @@
 <template>
   <div id="login">
+    <div id="background"></div>
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-5-tablet is-4-desktop is-3-widescreen">
@@ -100,3 +101,18 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+#login {
+  #background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    position: top left;
+    background-image: url("~@/assets/icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+  }
+}
+</style>

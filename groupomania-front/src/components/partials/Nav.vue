@@ -1,9 +1,10 @@
 <template>
+<div id="nav">
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
         <img
-          src="@/assets/icon-left-font-rogner.png"
+          src="@/assets/icon-left-font-monochrome-black-rogne.png"
           width="128"
           height="128"
         />
@@ -29,13 +30,12 @@
       class="navbar-menu"
       v-bind:class="{ 'is-active': showNav }"
     >
-      <div class="navbar-start">
+      <div class="navbar-start" v-if="this.$store.state.auth.status.loggedIn">
         <a class="navbar-item" href="/"> Accueil </a>
-
         <a class="navbar-item" href="/new-post"> Ajouter un post </a>
       </div>
 
-      <div class="navbar-end">
+      <div class="navbar-end" v-if="this.$store.state.auth.status.loggedIn">
         <div class="navbar-item">
           <div class="buttons">
             <a class="button is-primary" href="/profile">
@@ -44,9 +44,20 @@
             <a class="button is-danger" href="/logout"> Se déconnecter </a>
           </div>
         </div>
+      </div>      
+      <div class="navbar-end" v-if="!this.$store.state.auth.status.loggedIn">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-info" href="/signup">
+              <strong>Créer mon compte</strong>
+            </a>
+            <a class="button is-success" href="/login"> Se connecter </a>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
+</div>
 </template>
 
 
@@ -60,3 +71,13 @@ export default {
   },
 };
 </script>
+
+
+<style lang="scss">
+#nav {
+  margin-bottom: 25px;
+  .navbar{
+    background-color: #FFD7D7;
+  }
+}
+</style>
