@@ -66,6 +66,11 @@
             <div class="field">
               <button class="button is-success">Créer mon compte</button>
             </div>
+            <div class="field">
+              <div v-if="message" class="notification is-danger" role="alert">
+                {{ message }}
+              </div>
+            </div>
           </form>
         </div>
       </div>
